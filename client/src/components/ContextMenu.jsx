@@ -27,7 +27,7 @@ ContextMenu.propTypes = {
   position: PropTypes.shape({
     top: PropTypes.number.isRequired,
     left: PropTypes.number.isRequired,
-  }).isRequired
+  }).isRequired,
 };
 
 export default ContextMenu;

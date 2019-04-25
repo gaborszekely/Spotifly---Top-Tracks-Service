@@ -7,7 +7,7 @@ const db = require('./db.js');
 
 const app = express();
 
-// Middelware Setup
+// Middleware Setup
 
 app.use(cors());
 app.use(express.static(`${__dirname}/../client/dist`));

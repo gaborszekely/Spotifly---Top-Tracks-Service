@@ -27,15 +27,22 @@ class PopularTrack extends Component {
       document.removeEventListener('click', this.hideContext);
     });
   }
-  
+
   render() {
     const { track, setCurrentTrack } = this.props;
     const { display, contextPosition } = this.state;
     if (!track) return null;
 
     return (
-      <div className="flex1" data-testid="track" onDoubleClick={() => setCurrentTrack(track)} onContextMenu={this.showContext}>
-        {display && <ContextMenu data-testid="context-menu" position={contextPosition} />}
+      <div
+        className="flex1"
+        data-testid="track"
+        onDoubleClick={() => setCurrentTrack(track)}
+        onContextMenu={this.showContext}
+      >
+        {display && (
+          <ContextMenu data-testid="context-menu" position={contextPosition} />
+        )}
         <div className="flex2">
           <div data-testid="track-icon" className="icon">
             <i className="fas fa-music" />
@@ -46,6 +53,8 @@ class PopularTrack extends Component {
               data-testid="track-image"
               src={track.image}
               alt={track.name}
+              height="50"
+              width="50"
             />
           </div>
           <div data-testid="track-name" className="trackName">
@@ -66,12 +75,15 @@ class PopularTrack extends Component {
 PopularTrack.propTypes = {
   track: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    artist: PropTypes.string,
+    artist: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
     image: PropTypes.string.isRequired,
-    playCount: PropTypes.number.isRequired,
+    playcount: PropTypes.number.isRequired,
     length: PropTypes.string.isRequired,
   }).isRequired,
-  setCurrentTrack: PropTypes.func.isRequired
+  setCurrentTrack: PropTypes.func.isRequired,
 };
 
 export default PopularTrack;
