@@ -828,3 +828,15 @@
 {"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T16:15:14.013Z","msg":"You may want to increase the limits for this event type.","component":"Harvest"}
 {"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T16:16:14.015Z","msg":"Dropped 8581 of 18581 datapoints for analyticsEvents.","component":"Harvest"}
 {"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T16:16:14.015Z","msg":"You may want to increase the limits for this event type.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:26:14.244Z","msg":"Dropped 7632 of 17632 datapoints for analyticsEvents.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:26:14.244Z","msg":"You may want to increase the limits for this event type.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:27:14.243Z","msg":"Dropped 21122 of 31122 datapoints for analyticsEvents.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:27:14.243Z","msg":"You may want to increase the limits for this event type.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:28:14.243Z","msg":"Dropped 18878 of 28878 datapoints for analyticsEvents.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:28:14.244Z","msg":"You may want to increase the limits for this event type.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:29:14.243Z","msg":"Dropped 3944 of 13944 datapoints for analyticsEvents.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:29:14.243Z","msg":"You may want to increase the limits for this event type.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:30:14.245Z","msg":"Dropped 29459 of 39459 datapoints for analyticsEvents.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:30:14.245Z","msg":"You may want to increase the limits for this event type.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:31:14.248Z","msg":"Dropped 6597 of 16597 datapoints for analyticsEvents.","component":"Harvest"}
+{"v":0,"level":40,"name":"newrelic","hostname":"system76-pc","pid":17411,"time":"2019-04-26T18:31:14.248Z","msg":"You may want to increase the limits for this event type.","component":"Harvest"}
