@@ -1,0 +1,20 @@
+config:
+  target: 'http://localhost:3000/tracks'
+  plugins:
+    expect: {}
+  phases:
+    - duration: 60
+      arrivalRate: 1000
+scenarios:
+  - name: Get tracks
+    flow:
+      - get:
+          url: '/test'
+          capture:
+            - json: 'name'
+          expect:
+            - statusCode: 200
+            - contentType: json
+            - hasProperty: 'name'
+            - equals:
+                - 'Standing Yellow Flannel'

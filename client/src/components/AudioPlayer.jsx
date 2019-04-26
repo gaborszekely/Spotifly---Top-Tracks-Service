@@ -1,69 +1,101 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-function AudioPlayer({ currentTrack: { name, artist, image, length } }) {
-  return (
-    <Player data-testid="audio-player">
-      <LeftFlex>
-        <div data-testid="left-flex-image">
-          {image && <img src={image} alt="albumImage" height="50" width="50" />}
-        </div>
-        <LeftInnerFlex>
-          <div data-testid="left-flex-track" className="aTrackName">
-            {name}
-          </div>
-          <div className="aArtistName">{artist && artist.name}</div>
-        </LeftInnerFlex>
-        <Icon>{image && <i className="fas fa-plus" />}</Icon>
-      </LeftFlex>
-      <CenterFlex>
-        <CenterTopFlex>
-          <Icon>
-            <i className="fas fa-random" />
-          </Icon>
-          <Icon>
-            <i className="fas fa-step-backward" />
-          </Icon>
-          <Icon>
-            {image ? (
-              <i className="far fa-pause-circle" />
-            ) : (
-              <i className="far fa-play-circle" />
+class AudioPlayer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      play: false,
+    };
+
+    this.togglePlay = this.togglePlay.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { currentTrack } = this.props;
+
+    if (currentTrack !== prevProps.currentTrack) {
+      this.togglePlay(!!currentTrack.image);
+    }
+  }
+
+  togglePlay(_e, val) {
+    this.setState(prevState => ({
+      play: typeof val !== 'undefined' ? val : !prevState.play,
+    }));
+  }
+
+  render() {
+    const {
+      currentTrack: { name, artist, image, length },
+    } = this.props;
+
+    const { play } = this.state;
+
+    return (
+      <Player data-testid="audio-player">
+        <LeftFlex>
+          <div data-testid="left-flex-image">
+            {image && (
+              <img src={image} alt="albumImage" height="50" width="50" />
             )}
-          </Icon>
-          <Icon>
-            <i className="fas fa-step-forward" />
-          </Icon>
-          <Icon>
-            <i className="fas fa-sync-alt" />
-          </Icon>
-        </CenterTopFlex>
-        <CenterBottomFlex>
-          <div className="songTime">0:00</div>
-          <i className="fas fa-circle" />
-          <div>
-            <hr className="progress" />
           </div>
-          <div className="songTime">{length || '0:00'}</div>
-        </CenterBottomFlex>
-      </CenterFlex>
-      <RightFlex>
-        <Icon>
-          <i className="fas fa-sliders-h" />
-        </Icon>
-        <Icon>
-          <i className="fas fa-mobile-alt" />
-        </Icon>
-        <Icon>
-          <i className="fas fa-volume-up" />
-        </Icon>
-        <div>
-          <hr className="volume" />
-        </div>
-      </RightFlex>
-    </Player>
-  );
+          <LeftInnerFlex>
+            <div data-testid="left-flex-track" className="aTrackName">
+              {name}
+            </div>
+            <div className="aArtistName">{artist && artist.name}</div>
+          </LeftInnerFlex>
+          <Icon>{image && <i className="fas fa-plus" />}</Icon>
+        </LeftFlex>
+        <CenterFlex>
+          <CenterTopFlex>
+            <Icon>
+              <i className="fas fa-random" />
+            </Icon>
+            <Icon>
+              <i className="fas fa-step-backward" />
+            </Icon>
+            <PlayIcon>
+              <i
+                className={play ? 'far fa-pause-circle' : 'far fa-play-circle'}
+                onClick={this.togglePlay}
+              />
+            </PlayIcon>
+            <Icon>
+              <i className="fas fa-step-forward" />
+            </Icon>
+            <Icon>
+              <i className="fas fa-sync-alt" />
+            </Icon>
+          </CenterTopFlex>
+          <CenterBottomFlex>
+            <div className="songTime">0:00</div>
+            <i className="fas fa-circle" />
+            <div>
+              <hr className="progress" />
+            </div>
+            <div className="songTime">{length || '0:00'}</div>
+          </CenterBottomFlex>
+        </CenterFlex>
+        <RightFlex>
+          <Icon>
+            <i className="fas fa-sliders-h" />
+          </Icon>
+          <Icon>
+            <i className="fas fa-mobile-alt" />
+          </Icon>
+          <Icon>
+            <i className="fas fa-volume-up" />
+          </Icon>
+          <div>
+            <hr className="volume" />
+          </div>
+        </RightFlex>
+      </Player>
+    );
+  }
 }
 
 AudioPlayer.propTypes = {
@@ -72,7 +104,7 @@ AudioPlayer.propTypes = {
     artist: PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
     image: PropTypes.string,
     length: PropTypes.string,
   }).isRequired,
@@ -157,8 +189,22 @@ const Icon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  i:hover {
+  & i:hover {
     color: white;
+    transition: all 0.3s ease;
+  }
+`;
+
+const PlayIcon = styled.div`
+  height: 32px;
+  width: 32px;
+  color: #b3b3b3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & i:hover {
+    color: white;
+    transform: scale(1.1);
     transition: all 0.3s ease;
   }
 `;

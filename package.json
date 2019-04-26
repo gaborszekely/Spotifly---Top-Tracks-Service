@@ -9,7 +9,7 @@
     "testwatch": "jest --watch --no-cache",
     "testcoverage": "jest --coverage --colors --detectOpenHandles",
     "client": "webpack -d --watch",
-    "server": "nodemon server/index.js",
+    "server": "node server/index.js",
     "server-production": "node server/server.js",
     "data": "node server/db.js",
     "all": "npm run data & npm run server-production"
@@ -78,6 +78,7 @@
     "react-dom": "^16.8.5",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^2.1.8",
+    "redis": "^2.8.0",
     "sequelize": "^5.7.0",
     "source-map-support": "^0.5.12",
     "styled-components": "^4.2.0",

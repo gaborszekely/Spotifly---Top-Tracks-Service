@@ -1,6 +1,3 @@
-// e0ce189b2ee94dea1d4c67eadc96cf9866f4e64c
-
-'use strict';
 /**
  * New Relic agent configuration.
  *

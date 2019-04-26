@@ -23,9 +23,9 @@ class TopTracks extends Component {
   }
 
   getTopTracks() {
-    fetch('/data/toptracks')
+    fetch('/tracks/top')
       .then(results => results.json())
-      .then((tracks) => {
+      .then(tracks => {
         this.setState({ tracks });
       })
       .catch(console.log);
@@ -37,8 +37,8 @@ class TopTracks extends Component {
         name: track.name,
         artist: track.artist,
         image: track.image,
-        length: track.length
-      }
+        length: track.length,
+      },
     });
   }
 
@@ -46,14 +46,14 @@ class TopTracks extends Component {
     const { tracks, currentTrack } = this.state;
     const { setCurrentTrack } = this;
     if (!tracks) return null;
-   
+
     if (window.location.hash !== '#related') {
       return (
         <div id="main" data-testid="popular-main">
           <div id="left" />
           <div id="content">
             <h1 id="header">Popular</h1>
-            <PopularList 
+            <PopularList
               data-testid="popular-list"
               tracks={tracks}
               setCurrentTrack={setCurrentTrack}
@@ -62,7 +62,7 @@ class TopTracks extends Component {
           <AudioPlayer currentTrack={currentTrack} />
         </div>
       );
-    } 
+    }
     return (
       <div id="main" data-testid="popular-main">
         <AudioPlayer currentTrack={currentTrack} />
