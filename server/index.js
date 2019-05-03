@@ -20,5 +20,5 @@ app.use(express.static(`${__dirname}/../client/dist`));
 
 app.use('/tracks', tracksRouter);
 
-const PORT = process.env.PORT || 3004;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}...`));
