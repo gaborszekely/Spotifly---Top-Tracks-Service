@@ -1,12 +1,30 @@
-version: "3"
+version: '3'
 
 services:
   client:
     build: .
     depends_on:
-      - "database"
+      - 'postgres'
+      - 'redis'
     ports:
-      - "3000:3000"
+      - '3000:3000'
+    links:
+      - redis
+      - postgres
+    environment:
+      - REDIS_URL=redis://cache
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST=sdc-top-tracks-db.cqntc3qfxm9a.us-east-2.rds.amazonaws.com
 
-  database:
-    image: mongo:latest
+  postgres:
+    image: postgres:latest
+
+  redis:
+    image: redis:latest
+    container_name: cache
+    ports:
+      - '6379:6379'
+    # hostname: redis
+    command: ['redis-server', '--appendonly', 'no', '--save', '""']

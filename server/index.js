@@ -2,22 +2,23 @@ require('newrelic');
 require('../database/postgres/db');
 
 const express = require('express');
-const morgan = require('morgan');
 const cors = require('cors');
+
 const tracksRouter = require('./router.js');
 
 const app = express();
 
-// Middleware Setup
-
 app.use(cors());
-app.use(morgan('dev'));
-app.use(express.json());
-app.use(express.static(`${__dirname}/../client/dist`));
 
-// Routes Setup
+app.get('*.js', (req, res, next) => {
+  req.url = `${req.url}.gz`;
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
+app.use(express.static(`${__dirname}/../client/dist`));
 
 app.use('/tracks', tracksRouter);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3004;
 app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}...`));

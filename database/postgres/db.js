@@ -1,15 +1,18 @@
+/* eslint-disable operator-linebreak */
 const Sequelize = require('sequelize');
 
-// Option 1: Passing parameters separately
-const sequelize = new Sequelize('top_tracks', 'gabor', 'gabor', {
-  host: 'localhost',
+const defaultDB = 'postgres';
+const defaultUser = 'postgres';
+const defaultPassword = 'postgres';
+const defaultHost =
+  'sdc-top-tracks-db.cqntc3qfxm9a.us-east-2.rds.amazonaws.com';
+
+const sequelize = new Sequelize({
+  database: process.env.POSTGRES_DB || defaultDB,
+  username: process.env.POSTGRES_USER || defaultUser,
+  password: process.env.POSTGRES_PASSWORD || defaultPassword,
+  host: process.env.POSTGRES_HOST || defaultHost,
   dialect: 'postgres',
-  // pool configuration used to pool database connections
-  // pool: {
-  //   max: 20,
-  //   idle: 30000,
-  //   acquire: 60000,
-  // },
 });
 
 sequelize
@@ -22,3 +25,11 @@ sequelize
   });
 
 module.exports = sequelize;
+
+/*
+  // `postgresql://${process.env.POSTGRES_USER}:${
+  //   process.env.POSTGRES_PASSWORD
+  // }@postgres/${process.env.POSTGRES_DB}`
+  // `${process.env.PSQL_CONNECTION}`
+  // 'sdc-top-tracks-db.cqntc3qfxm9a.us-east-2.rds.amazonaws.com'
+*/

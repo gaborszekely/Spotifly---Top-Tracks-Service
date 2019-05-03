@@ -1,9 +1,9 @@
 config:
-  target: 'http://localhost:3000/tracks'
+  target: 'http://sdc-tcp-load-balancer-bcd1fa8871a2a068.elb.us-east-2.amazonaws.com/tracks'
   # plugins:
   # expect: {}
   phases:
-    - duration: 30
+    - duration: 60
       arrivalRate: 1000
 scenarios:
   - name: Get top tracks
@@ -13,8 +13,8 @@ scenarios:
           # capture:
           #   - json: 'name'
           # expect:
-          # - statusCode: 200
-          # - contentType: json
+          #   - statusCode: 200
+          #   - contentType: json
           # - hasProperty: "name"
           # - equals:
           #     - "Standing Yellow Flannel"

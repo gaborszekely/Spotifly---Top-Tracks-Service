@@ -1,8 +1,8 @@
 const express = require('express');
 const testController = require('./controllers/test');
 const topTracksController = require('./controllers/topTracks');
-const topTracksCache = require('./redis/cacheTracks');
-const testCache = require('./redis/cacheTest');
+const topTracksCache = require('../database/redis/tracksCache');
+const testCache = require('../database/redis/testCache');
 
 const router = express.Router();
 

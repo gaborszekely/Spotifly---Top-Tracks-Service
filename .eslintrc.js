@@ -32,6 +32,8 @@ module.exports = {
     'no-plusplus': 'off',
     'import/extensions': 'off',
     'no-underscore-dangle': 'off',
+    'operator-linebreak': 'off',
+    'consistent-return': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
   },
 };

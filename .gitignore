@@ -2,3 +2,6 @@ node_modules
 csv
 csv_old
 coverage
+client/dist/bundle.js.gz
+client/dist/bundle.js
+package-lock.json
