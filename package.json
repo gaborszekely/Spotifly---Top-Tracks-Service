@@ -9,7 +9,7 @@
     "testwatch": "jest --watch --no-cache",
     "testcoverage": "jest --coverage --colors --detectOpenHandles",
     "client": "webpack -d --watch",
-    "server": "nodemon server/index.js",
+    "server": "node server/index.js",
     "pg": "psql -f database/postgres/postgres.sql",
     "prod": "npm run server & npm run pg"
   },
