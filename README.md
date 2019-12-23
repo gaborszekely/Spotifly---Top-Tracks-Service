@@ -1,6 +1,6 @@
 # Spotifly - Top Tracks Microservice
 
-This project consisted of scaling and optimizing the back-end an existing Music Player web application using a microservices-oriented architecture. Using tools such as Node.js, Postgres, Redis, AWS RDS (Relational Database Service), AWS ElastiCache (for our hosted Redis cluster), New Relic, our team was able to opimize lookup times by 400% and serve over 1,000 requests per second with over 10 million database entries. 
+This project consisted of scaling and optimizing the back-end an existing Music Player web application using a microservices-oriented architecture. Using tools such as Node.js, Postgres, Redis, AWS RDS (Relational Database Service), AWS ElastiCache (for our hosted Redis cluster), New Relic, our team was able to opimize lookup times by 500% and serve over 1,000 requests per second with over 10 million database entries. 
 
 This microservice consisted of the serving Top Tracks associated with an individual artist.
 
