@@ -1,8 +1,8 @@
 # Spotifly - Top Tracks Microservice
 
-This project consisted of designing, building and deploying a fully functional full-stack web application using a microservices-oriented architecture. Our team chose to model our UI off of a popular TripAdvisor Hotel Reviews page and fully replicate the look, feel and functionality of the application.
+This project consisted of scaling and optimizing the back-end an existing Music Player web application using a microservices-oriented architecture. Using tools such as Node.js, Postgres, Redis, AWS RDS (Relational Database Service), AWS ElastiCache (for our hosted Redis cluster), New Relic, our team was able to opimize lookup times by 400% and serve over 1,000 requests per second with over 10 million database entries. 
 
-This microservice consisted of the Reviews component which allows users to search, filter and list user reviews related to an individual hotel.
+This microservice consisted of the serving Top Tracks associated with an individual artist.
 
 ![User Reviews Screenshot](screenshots/reviews.png)
 
@@ -39,21 +39,12 @@ npm install
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+In order to install project dependencies, please run the following from the root directory.
 
 ```
-Give the example
+npm install
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -72,15 +63,6 @@ To run code coverage tests with Jest:
 npm run test:coverage
 ```
 
-### End to end testing
-
-Our end-to-end tests consisted of using React-Testing-Library to test interactivity between dynamic page elements including modals, button clicks and tabs.
-
-Example:
-```
-When user clicks the "Photos" tab, component should switch main view layer to display user-uploaded images and comments.
-```
-
 ### Coding style
 
 Our codebase utilized ESLint along with the AirBnB style guide to make sure our coding conformed to the rigorous style standards industry code. Our code remained fully up-to-date with the A11y accessibility requirements in order to provide all users with a positive experience on our page.
@@ -91,12 +73,17 @@ Our deployment process consisted of using Docker to containerize our web applica
 
 ## Built With
 
+* [Node.js](https://nodejs.org/en/) - Server-side language
+* [Express.js](https://expressjs.com/) - Server-side framework used
+* [PostgreSQL](https://www.postgresql.org/) - Relational data store
+* [AWS RDS](https://aws.amazon.com/rds/) - Database hosting solution
+* [Redis](https://redis.io/) - In-memory caching solution
+* [AWS ElastiCache](https://aws.amazon.com/elasticache/) - Hosting solution for Redis cluster
+* [AWS EC2](https://aws.amazon.com/ec2/) - Cloud scaling solution
+* [AWS ECS](https://aws.amazon.com/ecs/) - Container orchestration service
+* [New Relic](https://newrelic.com/) - API performance monitoring solution
+* [Artillery.io](https://artillery.io/) - Load testing solution
 * [React.js](https://reactjs.org) - Front-end framework used
-* [Styled Components](https://reactjs.org/docs/context.html) - State Management
-* [Node.js](https://nodejs.org/en/) - Server-side solution
-* [Express.js](https://expressjs.com/) - Node.js framework used
-* [MongoDB](https://www.mongodb.com/) - Data persistence
-* [Mongoose](https://mongoosejs.com/) - ORM
 * [SCSS](https://sass-lang.com/) - CSS preprocessor
 
 ## Contributing
