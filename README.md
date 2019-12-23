@@ -4,8 +4,6 @@ This project consisted of scaling and optimizing the back-end an existing Music 
 
 This microservice consisted of the serving Top Tracks associated with an individual artist.
 
-![User Reviews Screenshot](screenshots/reviews.png)
-
 ## Table of Contents
 
 - [Spotifly - Top Tracks Microservice](#spotifly---top-tracks-microservice)
